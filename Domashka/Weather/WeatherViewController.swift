@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(resultWeather)
+        
     }
         
     func numberOfSections(in tableView: UITableView) -> Int { //кол-во секций

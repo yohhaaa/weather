@@ -14,7 +14,7 @@ class CoordinationViewController: UIViewController{
     @IBOutlet weak var longitude: UITextField!
 
     
-    var city:String {   // конвертирую строку из текстфилда в числовое значение
+    var city:String {   
         get {
             return String(cityName.text!)
         }
