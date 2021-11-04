@@ -33,7 +33,7 @@ class CreateNoteViewController: UIViewController {
             print("update")
                 Realmmanager.shared.updateNote(model: notesModel, name: noteTitle.text!, text: noteTextView.text!)
                 
-                dismiss(animated: true, completion: nil)
+                navigationController?.popViewController(animated: true)
             
         } else
             
@@ -44,8 +44,7 @@ class CreateNoteViewController: UIViewController {
             notesModel.uuid = UUID().uuidString
             
             Realmmanager.shared.createNote(model: notesModel)
-                
-                navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true)
             
         }
     

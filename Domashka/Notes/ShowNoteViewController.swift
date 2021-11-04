@@ -20,11 +20,12 @@ class ShowNoteViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bData = realm.objects(NotesModel.self)
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bData.count
     }
@@ -65,9 +66,7 @@ class ShowNoteViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         edit.notesModel = bData[indexPath.row]
         edit.editModel = true
-        edit.modalPresentationStyle = .fullScreen
-        
-        present(edit,animated: true,completion: nil)
+        show(edit, sender: nil)
         }
     }
 

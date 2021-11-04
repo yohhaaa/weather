@@ -32,6 +32,10 @@ class CoordinationViewController: UIViewController{
         spinner.isHidden = true
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        spinner.isHidden = true
+        spinner.stopAnimating()
+    }
     
     func getWeather() {   //тук-тук на сервер
         
@@ -45,7 +49,7 @@ class CoordinationViewController: UIViewController{
                     else {return}
                     vcWeather.resultWeather = resultJSON
                     vcWeather.modalPresentationStyle = .fullScreen
-                    self.present(vcWeather, animated: true, completion: nil)
+                    self.show(vcWeather, sender: nil)
                     
             }
             catch{

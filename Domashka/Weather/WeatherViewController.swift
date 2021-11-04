@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         guard let info = storyboard?.instantiateViewController(withIdentifier:"infoVC") as? InfoViewController else {return}
         info.weatherInfo = resultWeather
         info.modalPresentationStyle = .fullScreen
-        present(info, animated: true, completion: nil)
+        show(info, sender: nil)
         
     }
 

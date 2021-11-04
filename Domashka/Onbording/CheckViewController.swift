@@ -25,14 +25,14 @@ class CheckViewController: UIViewController {
             
             let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
             vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
+            show(vc, sender: nil)
             }
         
             else {
             let controller = storyboard?.instantiateViewController(identifier: "homeNC") as! UINavigationController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-            present(controller, animated: true, completion: nil)
+            show(controller, sender: nil)
         }
         
     }
