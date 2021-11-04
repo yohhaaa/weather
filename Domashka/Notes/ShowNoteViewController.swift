@@ -16,11 +16,11 @@ class ShowNoteViewController: UIViewController,UITableViewDelegate,UITableViewDa
     lazy var realm = try! Realm()
     var textlabel = String()
     var detailsText = String()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bData = realm.objects(NotesModel.self)
+    
         
     }
     override func viewWillAppear(_ animated: Bool) {
