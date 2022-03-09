@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="sg0-pw-eOm">
             <objects>
-                <viewController storyboardIdentifier="begin" id="NUL-ov-kA0" customClass="FirstViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="begin" id="NUL-ov-kA0" customClass="SignInViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouR-cu-Dby">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToNextPage:" destination="NUL-ov-kA0" eventType="touchUpInside" id="3LR-ch-7QZ"/>
+                                    <action selector="signIn:" destination="NUL-ov-kA0" eventType="touchUpInside" id="3LR-ch-7QZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-Jl-Mub">
@@ -76,9 +76,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="PhW-Fi-wXv"/>
                     <connections>
-                        <outlet property="buttonDisabler" destination="bDM-IP-lq7" id="YVZ-nS-IUa"/>
-                        <outlet property="login" destination="Kbf-Gk-f0S" id="0X5-xH-4n2"/>
-                        <outlet property="password" destination="i3R-Vs-h51" id="cZM-f7-xCH"/>
+                        <outlet property="loginField" destination="Kbf-Gk-f0S" id="0X5-xH-4n2"/>
+                        <outlet property="passwordField" destination="i3R-Vs-h51" id="cZM-f7-xCH"/>
+                        <outlet property="signInButton" destination="bDM-IP-lq7" id="YVZ-nS-IUa"/>
                         <segue destination="ys5-X9-ngk" kind="show" identifier="nextPage" id="VIf-Up-01C"/>
                     </connections>
                 </viewController>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="134.59821428571428"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="QCT-gE-XYy">
             <objects>
-                <viewController id="ys5-X9-ngk" customClass="SecondViewController" customModule="Domashka" sceneMemberID="viewController">
+                <viewController id="ys5-X9-ngk" customClass="MenuViewController" customModule="Domashka" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jup-OS-SI3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="showCoordinationView:" destination="ys5-X9-ngk" eventType="touchUpInside" id="XuX-Ni-o0G"/>
+                                    <action selector="weatherButton:" destination="ys5-X9-ngk" eventType="touchUpInside" id="XuX-Ni-o0G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pby-NK-gzX">
@@ -109,7 +109,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Create Notes"/>
                                 <connections>
-                                    <action selector="showCreateNote:" destination="ys5-X9-ngk" eventType="touchUpInside" id="u19-xF-B9X"/>
+                                    <action selector="createNoteButton:" destination="ys5-X9-ngk" eventType="touchUpInside" id="u19-xF-B9X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwl-jt-WcC">
@@ -117,7 +117,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Show Notes"/>
                                 <connections>
-                                    <action selector="showDetailsNote:" destination="ys5-X9-ngk" eventType="touchUpInside" id="DGF-zF-6nh"/>
+                                    <action selector="detailNoteButton:" destination="ys5-X9-ngk" eventType="touchUpInside" id="DGF-zF-6nh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="1042" y="-616"/>
         </scene>
-        <!--Coordination View Controller-->
+        <!--Weather Request View Controller-->
         <scene sceneID="bgq-tF-3x4">
             <objects>
-                <viewController storyboardIdentifier="coord" id="K8l-Up-d8U" customClass="CoordinationViewController" customModule="Domashka" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coord" id="K8l-Up-d8U" customClass="WeatherRequestViewController" customModule="Domashka" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XVJ-bc-sil">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="3762" y="135"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Weather Result View Controller-->
         <scene sceneID="MSe-sx-cy7">
             <objects>
-                <viewController storyboardIdentifier="weatherVC" id="bWn-VA-Aol" customClass="WeatherViewController" customModule="Domashka" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherVC" id="bWn-VA-Aol" customClass="WeatherResultViewController" customModule="Domashka" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zf0-TZ-TxA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="4596" y="135"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Weather Info View Controller-->
         <scene sceneID="E4y-gB-ofd">
             <objects>
-                <viewController storyboardIdentifier="infoVC" id="oEd-jF-YYc" customClass="InfoViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoVC" id="oEd-jF-YYc" customClass="WeatherInfoViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dsl-QX-Lnh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,10 +408,10 @@
             </objects>
             <point key="canvasLocation" x="2745" y="962"/>
         </scene>
-        <!--Show Note View Controller-->
+        <!--Detail Notes View Controller-->
         <scene sceneID="69s-vy-YWE">
             <objects>
-                <viewController storyboardIdentifier="board" id="1PD-Re-5wm" customClass="ShowNoteViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="board" id="1PD-Re-5wm" customClass="DetailNotesViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8x-Zj-CVg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -464,7 +464,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tpR-r2-Rec"/>
+        <segue reference="zb0-Fs-wto"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

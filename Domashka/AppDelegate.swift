@@ -5,10 +5,8 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let config = Realm.Configuration(schemaVersion :5 , migrationBlock: {migration, oldSchema in  if oldSchema < 1{}})
+        let config = Realm.Configuration(schemaVersion :8 , migrationBlock: {migration, oldSchema in  if oldSchema < 1{}})
         Realm.Configuration.defaultConfiguration = config
         
         return true

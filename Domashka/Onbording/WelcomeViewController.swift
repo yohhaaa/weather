@@ -6,12 +6,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet var holderView: UIView!
     
     let scrollView = UIScrollView()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configure()
@@ -31,27 +26,22 @@ class WelcomeViewController: UIViewController {
             let imageView = UIImageView(frame: CGRect(x: 10, y: 10+120+10, width: pageView.frame.size.width-20, height: pageView.frame.size.height - 60 - 130 - 15))
             let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
             
+            pageView.addSubview(label)
+            pageView.addSubview(imageView)
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
-            pageView.addSubview(label)
             label.text = titles[x]
             imageView.contentMode = .scaleAspectFit
             imageView.image = UIImage(named: "welcome_\(x+1)")
-            pageView.addSubview(imageView)
-            
-            
-            
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .black
             button.setTitle("Next", for: .normal)
-            
-            if x == 2 {
-                button.setTitle("Let's Start", for: .normal)
-            }
-            
             button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             button.tag = x+1
             pageView.addSubview(button)
+            if x == 2 {
+                button.setTitle("Let's Start", for: .normal)
+            }
         }
         
         scrollView.contentSize = CGSize(width: holderView.frame.size.width*3 , height: 0)
@@ -68,15 +58,9 @@ class WelcomeViewController: UIViewController {
             vc1.modalPresentationStyle = .fullScreen
             vc1.modalTransitionStyle = .flipHorizontal
             
-//            dismiss(animated: true, completion: nil)
             present(vc1, animated: true, completion: nil)
-            
-           return
+            return
         }
         scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
     }
-    
-        
-    }
-    
-
+}
