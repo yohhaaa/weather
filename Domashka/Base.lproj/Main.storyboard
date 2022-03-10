@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="2744.9275362318845" y="134.59821428571428"/>
         </scene>
-        <!--Check View Controller-->
+        <!--New User Screen View Controller-->
         <scene sceneID="oE4-uh-Xi7">
             <objects>
-                <viewController id="oAh-Bv-GAs" customClass="CheckViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oAh-Bv-GAs" customClass="NewUserScreenViewController" customModule="Domashka" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUG-g3-yS9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

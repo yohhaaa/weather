@@ -1,4 +1,3 @@
-
 import RealmSwift
 
 @objcMembers class NotesModel: Object {

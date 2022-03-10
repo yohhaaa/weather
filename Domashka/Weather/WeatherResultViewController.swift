@@ -1,10 +1,9 @@
-
 import UIKit
 import Alamofire
 
 class WeatherResultViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     var resultWeather:WeatherResult?
 }
 extension WeatherResultViewController: UITableViewDataSource {
@@ -25,9 +24,11 @@ extension WeatherResultViewController: UITableViewDataSource {
 extension WeatherResultViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return 1
     }
 }

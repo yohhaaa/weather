@@ -1,20 +1,28 @@
-
-
 import UIKit
 import RealmSwift
 
 class CreateNoteViewController: UIViewController {
+    
+    //MARK: Outlets
+    
+    @IBOutlet weak private var noteTextView: UITextView!
+    @IBOutlet weak private var noteTitle: UITextField!
+    @IBOutlet weak private var button: UIButton!
+    
+    //MARK: Properties
+    
     let realm = try! Realm()
     var notesModel = NotesModel()
     var editModel: Bool?
     
-    @IBOutlet weak var noteTextView: UITextView!
-    @IBOutlet weak var noteTitle: UITextField!
-    @IBOutlet weak var button: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        editModelCheck()
+    }
+    
+    //MARK: Methods
+    
+    private func editModelCheck(){
         if editModel != nil{
             noteTitle.text = notesModel.noteName
             noteTextView.text = notesModel.noteText
@@ -26,7 +34,6 @@ class CreateNoteViewController: UIViewController {
         
             if editModel == true {
                 RealmManager.shared.updateNote(model: notesModel, name: noteTitle.text!, text: noteTextView.text!)
-                
                 navigationController?.popViewController(animated: true)
             
         } else {
@@ -36,7 +43,6 @@ class CreateNoteViewController: UIViewController {
             
             RealmManager.shared.createNote(model: notesModel)
             navigationController?.popViewController(animated: true)
-            
         }
     }
 }

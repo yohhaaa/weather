@@ -18,7 +18,7 @@
 		E72A637D2718C55600CFD4F3 /* RealmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A637C2718C55600CFD4F3 /* RealmDataModel.swift */; };
 		E72A637F2718C6BB00CFD4F3 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A637E2718C6BB00CFD4F3 /* RealmManager.swift */; };
 		E72A6385271DE0D400CFD4F3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A6384271DE0D400CFD4F3 /* WelcomeViewController.swift */; };
-		E72A6387271DE11A00CFD4F3 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A6386271DE11A00CFD4F3 /* CheckViewController.swift */; };
+		E72A6387271DE11A00CFD4F3 /* NewUserScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A6386271DE11A00CFD4F3 /* NewUserScreenViewController.swift */; };
 		E72A638D2728826D00CFD4F3 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A638C2728826D00CFD4F3 /* WeatherInfoViewController.swift */; };
 		E7AC3F812709E54000BF5E18 /* WeatherRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AC3F802709E54000BF5E18 /* WeatherRequestViewController.swift */; };
 		E7AC3F83270F21DC00BF5E18 /* WeatherResultStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AC3F82270F21DC00BF5E18 /* WeatherResultStruct.swift */; };
@@ -47,7 +47,7 @@
 		E72A637C2718C55600CFD4F3 /* RealmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataModel.swift; sourceTree = "<group>"; };
 		E72A637E2718C6BB00CFD4F3 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		E72A6384271DE0D400CFD4F3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		E72A6386271DE11A00CFD4F3 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		E72A6386271DE11A00CFD4F3 /* NewUserScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserScreenViewController.swift; sourceTree = "<group>"; };
 		E72A638C2728826D00CFD4F3 /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
 		E7AC3F802709E54000BF5E18 /* WeatherRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequestViewController.swift; sourceTree = "<group>"; };
 		E7AC3F82270F21DC00BF5E18 /* WeatherResultStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResultStruct.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		E72A6388272721F100CFD4F3 /* Onbording */ = {
 			isa = PBXGroup;
 			children = (
-				E72A6386271DE11A00CFD4F3 /* CheckViewController.swift */,
+				E72A6386271DE11A00CFD4F3 /* NewUserScreenViewController.swift */,
 				E7E0271B27D93C27002B22BA /* CoreModel.swift */,
 				E72A6384271DE0D400CFD4F3 /* WelcomeViewController.swift */,
 			);
@@ -291,7 +291,7 @@
 				E7E0271627D937B4002B22BA /* WeatherStruct.swift in Sources */,
 				E728101826F63AAA0080D741 /* SceneDelegate.swift in Sources */,
 				E7AC3F812709E54000BF5E18 /* WeatherRequestViewController.swift in Sources */,
-				E72A6387271DE11A00CFD4F3 /* CheckViewController.swift in Sources */,
+				E72A6387271DE11A00CFD4F3 /* NewUserScreenViewController.swift in Sources */,
 				E7B157972716101800BFF8B3 /* DetailNotesViewController.swift in Sources */,
 				E7AC3F85270F895A00BF5E18 /* WeatherResultViewController.swift in Sources */,
 				E7E0271827D937D3002B22BA /* MainStruct.swift in Sources */,

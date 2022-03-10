@@ -3,13 +3,15 @@ import RealmSwift
 
 class DetailNotesViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    //MARK: Properties
+    
+    @IBOutlet weak private var tableView: UITableView!
     var dataBase:Results<NotesModel>!
     var notesModel = NotesModel()
-    let idCell = "customCell"
     var realm = try! Realm()
     var textlabel = String()
     var detailsText = String()
+    let idCell = "customCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ class DetailNotesViewController: UIViewController {
         tableView.reloadData()
     }
 }
+
+// MARK: UITableViewDelegate
 
 extension DetailNotesViewController: UITableViewDelegate {
     
@@ -49,6 +53,8 @@ extension DetailNotesViewController: UITableViewDelegate {
         show(edit, sender: nil)
     }
 }
+
+// MARK: UITableViewDataSource
 
 extension DetailNotesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,19 +1,12 @@
-//
-//  InfoViewController.swift
-//  Domashka
-//
-//  Created by Алан Ахмадуллин on 26.10.2021.
-//
-
 import UIKit
 
 class WeatherInfoViewController: UIViewController {
 
-    @IBOutlet weak var mainClouds: UILabel!
-    @IBOutlet weak var city: UILabel!
-    @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var pressure: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak private var mainClouds: UILabel!
+    @IBOutlet weak private var city: UILabel!
+    @IBOutlet weak private var temp: UILabel!
+    @IBOutlet weak private var pressure: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
     var weatherInfo:WeatherResult?
     
     override func viewDidLoad() {
@@ -41,7 +34,7 @@ class WeatherInfoViewController: UIViewController {
         else if weatherInfo?.weather[0].main == "Clear" {
             imageView.image = UIImage(named: "clear")
         }
-            else{print("no")}
+            else{print("no image")}
     }
 }
 

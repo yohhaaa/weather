@@ -1,12 +1,11 @@
-
 import UIKit
 import Alamofire
 import SwiftyJSON
 
 class WeatherRequestViewController: UIViewController{
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var cityName: UITextField!
+    @IBOutlet weak private var spinner: UIActivityIndicatorView!
+    @IBOutlet weak private var cityName: UITextField!
     let key = "75a7ace60bcf6e5bade5c60974912928"
     var city:String {   
         get {

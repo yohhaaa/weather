@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct WeatherResult: Decodable {
@@ -7,4 +6,3 @@ struct WeatherResult: Decodable {
     var wind:Wind
     var name:String
 }
-

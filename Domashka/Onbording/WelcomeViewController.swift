@@ -1,9 +1,8 @@
-
 import UIKit
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet var holderView: UIView!
+    @IBOutlet private var holderView: UIView!
     
     let scrollView = UIScrollView()
    
@@ -52,7 +51,7 @@ class WelcomeViewController: UIViewController {
     @objc func didTapButton(_ button:UIButton) {
         guard button.tag < 3 else {
             
-            Core.shared.setIsNotNewUser()
+            CoreModel.shared.setIsNotNewUser()
 
             let vc1 = storyboard?.instantiateViewController(withIdentifier: "homeNC") as! UINavigationController
             vc1.modalPresentationStyle = .fullScreen

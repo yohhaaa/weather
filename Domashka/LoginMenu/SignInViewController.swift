@@ -1,8 +1,9 @@
-
 import UIKit
 
 class SignInViewController: UIViewController {
+    
     // MARK: Outlets
+    
     @IBOutlet weak private var loginField: UITextField!
     @IBOutlet weak private var passwordField: UITextField!
     @IBOutlet weak private var signInButton: UIButton!
@@ -13,8 +14,10 @@ class SignInViewController: UIViewController {
         signInButton.isEnabled = false
         signInButton.alpha = 0.5
     }
+    
     // MARK: Alerts for signIn button
-    @IBAction func signIn(_ sender: UIButton) {
+    
+    @IBAction private func signIn(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Alert", message: "Wrong password", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default) { action in }
@@ -24,7 +27,9 @@ class SignInViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil) }
         }
     }
-    // MARK: UITextFieldDelegate
+
+// MARK: UITextFieldDelegate
+
 extension SignInViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -37,7 +42,7 @@ extension SignInViewController: UITextFieldDelegate {
             signInButton.isEnabled = true
             signInButton.alpha = 1
         }
+        
         return true
     }
-    
 }
