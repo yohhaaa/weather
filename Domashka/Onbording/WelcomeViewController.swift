@@ -4,26 +4,48 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet private var holderView: UIView!
     
-    let scrollView = UIScrollView()
-   
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    private let scrollView = UIScrollView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         configure()
     }
-    
+   
     private func configure(){
-        
         scrollView.frame = holderView.bounds
+        scrollView.contentSize = CGSize(width: holderView.frame.size.width*3 , height: 0)
+        scrollView.isPagingEnabled = true
         holderView.addSubview(scrollView)
         
+        setup()
+    }
+    
+    @objc private func didTapButton(_ button: UIButton) {
+        guard button.tag < 3 else {
+            CoreModel.shared.setisFirstLaunching()
+
+            let firstLaunchView = storyboard?.instantiateViewController(withIdentifier: "homeNC") as! UINavigationController
+            firstLaunchView.modalPresentationStyle = .fullScreen
+            firstLaunchView.modalTransitionStyle = .flipHorizontal
+            
+            present(firstLaunchView, animated: true, completion: nil)
+            
+            return
+        }
+        
+        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
+    }
+    
+    private func setup(){
         let titles = ["Weather","Notes","Welcome"]
         for x in 0..<3 {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.size.width, y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
             scrollView.addSubview(pageView)
             
-            let label = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width-20, height: 120))
-            let imageView = UIImageView(frame: CGRect(x: 10, y: 10+120+10, width: pageView.frame.size.width-20, height: pageView.frame.size.height - 60 - 130 - 15))
-            let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
+            let label = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width - 20, height: 120))
+            let imageView = UIImageView(frame: CGRect(x: 10, y: 10 + 120 + 10, width: pageView.frame.size.width - 20, height: pageView.frame.size.height - 60 - 130 - 15))
+            let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.size.height - 60, width: pageView.frame.size.width - 20, height: 50))
             
             pageView.addSubview(label)
             pageView.addSubview(imageView)
@@ -42,24 +64,5 @@ class WelcomeViewController: UIViewController {
                 button.setTitle("Let's Start", for: .normal)
             }
         }
-        
-        scrollView.contentSize = CGSize(width: holderView.frame.size.width*3 , height: 0)
-        scrollView.isPagingEnabled = true
-        
-    }
-    
-    @objc func didTapButton(_ button:UIButton) {
-        guard button.tag < 3 else {
-            
-            CoreModel.shared.setIsNotNewUser()
-
-            let vc1 = storyboard?.instantiateViewController(withIdentifier: "homeNC") as! UINavigationController
-            vc1.modalPresentationStyle = .fullScreen
-            vc1.modalTransitionStyle = .flipHorizontal
-            
-            present(vc1, animated: true, completion: nil)
-            return
-        }
-        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
     }
 }

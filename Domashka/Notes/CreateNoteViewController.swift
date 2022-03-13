@@ -5,44 +5,50 @@ class CreateNoteViewController: UIViewController {
     
     //MARK: Outlets
     
-    @IBOutlet weak private var noteTextView: UITextView!
-    @IBOutlet weak private var noteTitle: UITextField!
-    @IBOutlet weak private var button: UIButton!
+    @IBOutlet private weak var noteTextView: UITextView!
+    @IBOutlet private weak var noteTitle: UITextField!
+    @IBOutlet private weak var button: UIButton!
     
     //MARK: Properties
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
     var notesModel = NotesModel()
     var editModel: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         editModelCheck()
     }
     
     //MARK: Methods
     
-    private func editModelCheck(){
-        if editModel != nil{
+    @IBAction private func goToDetails(_ sender: Any) {
+        if editModel == true {
+            updateNote()
+        }
+        else { createNote() }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func editModelCheck() {
+        if editModel != nil {
             noteTitle.text = notesModel.noteName
             noteTextView.text = notesModel.noteText
             button.setTitle("Save Note", for: .normal)
         }
     }
     
-    @IBAction func goToDetails(_ sender: Any) {
+    private func createNote() {
+        notesModel.noteName = noteTitle.text!
+        notesModel.noteText = noteTextView.text!
+        notesModel.uuid = UUID().uuidString
         
-            if editModel == true {
-                RealmManager.shared.updateNote(model: notesModel, name: noteTitle.text!, text: noteTextView.text!)
-                navigationController?.popViewController(animated: true)
-            
-        } else {
-            notesModel.noteName = noteTitle.text!
-            notesModel.noteText = noteTextView.text!
-            notesModel.uuid = UUID().uuidString
-            
-            RealmManager.shared.createNote(model: notesModel)
-            navigationController?.popViewController(animated: true)
-        }
+        RealmManager.shared.createNote(model: notesModel)
+    }
+    
+    private func updateNote() {
+        RealmManager.shared.updateNote(model: notesModel, name: noteTitle.text!, text: noteTextView.text!)
     }
 }

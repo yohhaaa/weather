@@ -1,6 +1,6 @@
 import Foundation
 
 struct Weather: Decodable {
-    var main:String
-    var description:String
+    var main: String
+    var description: String
 }

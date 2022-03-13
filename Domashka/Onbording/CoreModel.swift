@@ -1,13 +1,13 @@
 import Foundation
 
 class CoreModel{
- static let shared = CoreModel ()
+    static let shared = CoreModel ()
     
-    func isNewUser() -> Bool {
-        return !UserDefaults.standard.bool(forKey: "newUser302")
+    var isFirstLaunching: Bool { 
+        return !UserDefaults.standard.bool(forKey: "newUser304")
     }
     
-    func setIsNotNewUser(){
-        UserDefaults.standard.set(true, forKey: "newUser302")
+    func setisFirstLaunching() {
+        UserDefaults.standard.set(true, forKey: "newUser304")
     }
 }
