@@ -1,18 +1,15 @@
-
 import UIKit
 
-class CheckViewController: UIViewController {
+class NewUserScreenViewController: UIViewController {
 
-    override func viewDidLayoutSubviews(){
-        super.viewDidLayoutSubviews()
-        if Core.shared.isNewUser() {
-            
-            let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if CoreModel.shared.isFirstLaunching {
+            let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController 
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: nil)
-            }
-        
-            else {
+        } else {
             let controller = storyboard?.instantiateViewController(identifier: "homeNC") as! UINavigationController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal

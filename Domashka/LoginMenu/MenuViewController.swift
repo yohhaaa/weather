@@ -16,4 +16,3 @@ class MenuViewController: UIViewController {
        performSegue(withIdentifier: "showNote", sender: nil)
     }
 }
-

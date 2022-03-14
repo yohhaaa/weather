@@ -1,47 +1,39 @@
-//
-//  InfoViewController.swift
-//  Domashka
-//
-//  Created by Алан Ахмадуллин on 26.10.2021.
-//
-
 import UIKit
 
 class WeatherInfoViewController: UIViewController {
 
-    @IBOutlet weak var mainClouds: UILabel!
-    @IBOutlet weak var city: UILabel!
-    @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var pressure: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var mainClouds: UILabel!
+    @IBOutlet private weak var city: UILabel!
+    @IBOutlet private weak var temp: UILabel!
+    @IBOutlet private weak var pressure: UILabel!
+    @IBOutlet private weak var backgroundPicture: UIImageView!
     var weatherInfo:WeatherResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
-        showWeatherPicture()
-    }
-    func setup(){
-        mainClouds.text = weatherInfo?.weather[0].description
-        city.text = weatherInfo?.name
-        temp.text = "\(NSString(format: "%.0f",(weatherInfo!.main.temp)-273))°"
-        pressure.text = "pressure: \(NSString(format: "%.0f",(weatherInfo!.main.pressure)*0.750))"
     }
     
-    func showWeatherPicture(){
+    private func setup() {
+        mainClouds.text = weatherInfo?.weather[0].description
+        city.text = weatherInfo?.name
+        temp.text = "\(NSString(format: "%.0f",(weatherInfo!.main.temp) - 273))°"
+        pressure.text = "pressure: \(NSString(format: "%.0f",(weatherInfo!.main.pressure) * 0.750))"
+        
+        showWeatherPicture()
+    }
+    
+    private func showWeatherPicture() {
         if weatherInfo?.weather[0].main == "Clouds" {
-            imageView.image = UIImage(named: "cloud")
+            backgroundPicture.image = UIImage(named: "cloud")
+        } else if weatherInfo?.weather[0].main == "Rain" {
+            backgroundPicture.image = UIImage(named: "rain")
+        } else if weatherInfo?.weather[0].main == "Snow" {
+            backgroundPicture.image = UIImage(named: "snow")
+        } else if weatherInfo?.weather[0].main == "Clear" {
+            backgroundPicture.image = UIImage(named: "clear")
         }
-        else if weatherInfo?.weather[0].main == "Rain" {
-            imageView.image = UIImage(named: "rain")
-        }
-        else if weatherInfo?.weather[0].main == "Snow" {
-            imageView.image = UIImage(named: "snow")
-        }
-        else if weatherInfo?.weather[0].main == "Clear" {
-            imageView.image = UIImage(named: "clear")
-        }
-            else{print("no")}
     }
 }
 
